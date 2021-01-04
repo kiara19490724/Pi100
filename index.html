@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pai 100</title>
+
+    <script type="text/javascript">
+        var colNum = 1;  // 小数第何桁かを指定
+        var clickMissCount = 0;  // クリックミス回数
+
+        var piStart     // スタート時間を退避
+        var piStop      // 経過時間を退避
+        var piTime      // 通算ミリ秒計算
+        var piH         // '時間'取得
+        var piTime
+        var piM         // '分'取得
+        var piTime
+        var piS         // '秒'取得
+        var piMS        // 'ミリ秒'取得
+
+
+    </script>
+
+    <!-- 経過時間の表示
+    <script type="text/javascript">
+        if (colNum > 1) {      // ボタン[1]を押した
+           piInterval = setInterval("piDisp()",1);
+        }
+
+        function piDisp() {
+            var piStop = new Date();  // 経過時間を退避
+            var piTime = piStop.getTime() - piStart.getTime();     // 通算ミリ秒計算
+                var piH = Math.floor(piTime/(60*60*1000));         // '時間'取得
+                var piTime = piTime - (piH*60*60*1000);
+                var piM = Math.floor(piTime/(60*1000));            // '分'取得
+                var piTime = piTime - (piM*60*1000);
+                var piS = Math.floor(piTime/1000);                 // '秒'取得
+                var piMS = piTime%1000;                            // 'ミリ秒'取得
+
+            document.getElementById("elapsedTimeId").innerHTML = elapsedTime24p();
+            function elapsedTime24p() {
+                var sd24 = "タイム:" + piM + ":" + piS + ":" + piMS;
+                return sd24;
+            }
+        }
+    </script>
+    -->
+
+    <!-- ボタンにタッチした時に移動する先のJavaScriptファイル -->
+    <script type="text/javascript" src="js/clk_btn0.js"></script>
+    <script type="text/javascript" src="js/clk_btn1.js"></script>
+    <script type="text/javascript" src="js/clk_btn2.js"></script>
+    <script type="text/javascript" src="js/clk_btn3.js"></script>
+    <script type="text/javascript" src="js/clk_btn4.js"></script>
+    <script type="text/javascript" src="js/clk_btn5.js"></script>
+    <script type="text/javascript" src="js/clk_btn6.js"></script>
+    <script type="text/javascript" src="js/clk_btn7.js"></script>
+    <script type="text/javascript" src="js/clk_btn8.js"></script>
+    <script type="text/javascript" src="js/clk_btn9.js"></script>
+</head>
+<body>
+    <div id="pagebody">
+        <!-- リンク -->
+	    <div id="header">
+		    <h1><font size="2"><a href="http://www.geohexas.com/index.html">  HOME</a> &gt; <a href="http://www.geohexas.com/game.html">ゲーム</a> &gt; Pi100</font></h1>
+        </div>
+
+	    <!-- タイトル -->
+	    <div id="img_index">
+		    <h1 align="center"><font size="5">円周率100桁</font></h1>
+	    </div>
+
+        <div id="paiShowId">
+            <!-- π の各桁を表示するテーブル -->
+            <table style="width:535px" align="center">
+                <tr>
+                    <!--  style="border-right-style:hidden; border-bottom-style:hidden" -->
+                    <td colspan="9" style="background-color:#afeeee"></td>
+                    <td colspan="2" align="center" style="background-color:#afeeee"><input type="text" id="col00Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col01Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col02Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col03Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col04Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col05Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col06Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col07Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col08Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col09Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col10Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                </tr>
+                <tr>
+                    <!--  style="border-right-style:hidden; border-bottom-style:hidden" -->
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col11Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col12Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col13Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col14Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col15Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col16Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col17Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col18Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col19Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col20Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td width="10px" style="background-color:#afeeee"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col21Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col22Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col23Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col24Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col25Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col26Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col27Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col28Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col29Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col30Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                </tr>
+                <tr>
+                    <!--  style="border-right-style:hidden; border-bottom-style:hidden" -->
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col31Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col32Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col33Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col34Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col35Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col36Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col37Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col38Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col39Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col40Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td width="10px" style="background-color:#afeeee"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col41Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col42Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col43Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col44Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col45Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col46Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col47Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col48Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col49Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col50Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                </tr>
+                <tr>
+                    <!--  style="border-right-style:hidden; border-bottom-style:hidden" -->
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col51Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col52Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col53Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col54Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col55Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col56Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col57Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col58Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col59Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col60Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td width="10px" style="background-color:#afeeee"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col61Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col62Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col63Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col64Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col65Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col66Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col67Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col68Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col69Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col70Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                </tr>
+                <tr>
+                    <!--  style="border-right-style:hidden; border-bottom-style:hidden" -->
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col71Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col72Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col73Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col74Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col75Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col76Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col77Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col78Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col79Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col80Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td width="10px" style="background-color:#afeeee"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col81Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col82Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col83Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col84Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col85Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col86Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col87Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col88Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col89Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col90Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                </tr>
+                <tr>
+                    <!--  style="border-right-style:hidden; border-bottom-style:hidden" -->
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col91Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col92Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col93Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col94Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col95Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col96Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col97Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col98Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col99Id" value="" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col100Id" value="3." style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td colspan="2" align="center" style="background-color:yellow"><input type="text" id="col101Id" value="1" style="border:1px; width:35px; background-color:yellow; font-size:40pt; font-weight:bold; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col102Id" value="4" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col103Id" value="1" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col104Id" value="5" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col105Id" value="9" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col106Id" value="2" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col107Id" value="6" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col108Id" value="5" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col109Id" value="3" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                    <td align="center" style="background-color:#afeeee"><input type="text" id="col110Id" value="5" style="border:1px; width:25px; background-color:#afeeee; font-size:24pt; text-align:center"></td>
+                </tr>
+                <!--
+                <tr>
+                    <td colspan="10" style="border-left-style:hidden; background-color:#ccffcc"></td>
+                    <td colspan="2" align="center" style="border-right-style:hidden; border-left-style:hidden; background-color:#ccffcc"><font size="5">↕</font></td>
+                    <td colspan="9" style="border-right-style:hidden; background-color:#ccffcc"></td>
+                </tr>
+                <tr>
+                    <td colspan="10" style="border-top-style:hidden; border-bottom-style:hidden; border-left-style:hidden; background-color:#ccffcc"></td>
+                    <td colspan="2" align="center" style="background-color:#ccffcc"><input type="text" id="inDataId" value="" style="border:1px; width:35px; background-color:yellow; font-size:24pt; text-align:center"></td>
+                    <td align="center" colspan="10" style="border-top-style:hidden; border-right-style:hidden; border-bottom-style:hidden; background-color:#ccffcc">追従モード</td>
+                </tr>
+                -->
+            </table>
+        </div>
+
+
+        <!-- 左カラム（計時・日時の表示） -->
+	    <div id="time_data">
+            <!-- 経過時間の表示  -->
+            <div class="elapsedTimeBox">
+                <p align="center" style="position:absolute; top:35px; font-size:18pt; font-weight:bold; text-align:right" class="elapsedTime" id="elapsedTimeId"></p>
+            </div>
+
+            <!-- クリックミス回数の表示  -->
+            <div class="clickMissBox">
+                <p align="center" style="position:absolute; top:105px; font-size:18pt; font-weight:bold" class="clickMiss" id="clickMissId"></p>
+            </div>
+
+            <!-- スコアの表示  -->
+            <div class="scoreBox">
+                <p align="center" style="position:absolute; top:175px; font-size:18pt; font-weight:bold" class="score" id="scoreId"></p>
+            </div>
+
+            <!-- 日時を表示 -->
+            <div class="viewTimeBox">
+                <p align="center" style="position:absolute; top:245px; font-size:14pt; font-weight:bold" class="viewTime" id="viewTimeId"></p>
+            </div>
+        </div>
+
+        <!-- 右カラム（キーテーブル） -->
+        <div id="key_table" align="center" >
+            <table style="width:186px; hight:40px"  bgcolor="#ccffcc">
+                <tr>
+                            <td align="center" style="border-top-style:hidden; border-left-style:hidden"><img src="img/btn7.png" class="button7" id="btn7Id" onClick="link7()"></td>
+                    <td align="center" style="border-top-style:hidden; border-right-style:hidden; border-left-style:hidden"><img src="img/btn8.png" class="button8" id="btn8Id" onClick="link8()"></td>
+                    <td align="center" style="border-top-style:hidden; border-right-style:hidden"><img src="img/btn9.png" class="button9" id="btn9Id" onClick="link9()"></td>
+                </tr>
+                <tr>
+                    <td align="center" style="border-top-style:hidden; border-left-style:hidden"><img src="img/btn4.png" class="button4" id="btn4Id" onClick="link4()"></td>
+                    <td align="center" style="border-top-style:hidden; border-right-style:hidden; border-left-style:hidden"><img src="img/btn5.png" class="button5" id="btn5Id" onClick="link5()"></td>
+                    <td align="center" style="border-top-style:hidden; border-right-style:hidden"><img src="img/btn6.png" class="button6" id="btn6Id" onClick="link6()"></td>
+                </tr>
+                <tr>
+                    <td align="center" style="border-top-style:hidden; border-left-style:hidden"><img src="img/btn1.png" class="button1" id="btn1Id" onClick="link1()"></td>
+                    <td align="center" style="border-top-style:hidden; border-right-style:hidden; border-left-style:hidden"><img src="img/btn2.png" class="button2" id="btn2Id" onClick="link2()"></td>
+                    <td align="center" style="border-top-style:hidden; border-right-style:hidden"><img src="img/btn3.png" class="button3" id="btn3Id" onClick="link3()"></td>
+                </tr>
+                <tr>
+                    <td align="center" style="border-top-style:hidden; border-bottom-style:hidden; border-left-style:hidden"></td>
+                    <td align="center" style="border-top-style:hidden; border-right-style:hidden; border-bottom-style:hidden; border-left-style:hidden"><img src="img/btn0.png" class="button8" id="btn8Id" onClick="link0()"></td>
+                    <td align="center" style="border-top-style:hidden; border-right-style:hidden; border-bottom-style:hidden"></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- フッタ -->
+        <div id="footer">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- GAD300x250 -->
+            <ins class="adsbygoogle"
+                style="display:inline-block;width:300px;height:250px"
+                data-ad-client="ca-pub-6399164828794868"
+                data-ad-slot="5504321757"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+
+            <br><br>
+
+            <font size="2">Copyright (c) Kouichi Arai All Rights Reserved.</font>
+
+            <br><br>
+        </div>
+
+    </div>
+
+        <!-- 初期状態での表示 -->
+        <div class="initialMessageBox">
+            <p align="center" style="position:absolute; top:-500px; font-size:16pt; font-weight:bold; text-align:center" class="initialMessage" id="initialMessageId" z-index="5"></p>
+        </div>
+
+        <script type="text/javascript">
+            document.getElementById("initialMessageId").innerHTML = "キー[1]をクリックすると計時が始まります";
+        </script>
+
+        <script type="text/javascript">
+            // if (colNum = 0) {
+            //     document.getElementById("col110Id").value = "8";
+            // }
+
+            // 経過時間の表示
+            /*
+                piButton = 0;            // [Start]/[Stop]のフラグ
+
+            function piCheck() {
+                if (piButton == 0) {      // Startボタンを押した
+                    piStart = new Date();  // スタート時間を退避
+                    piButton = 1;
+                    // document.piForm.piFormButton.value = "Stop!";
+                    piInterval = setInterval("piDisp()",1);
+                } else {                 // Stopボタンを押した
+                    piDisp();
+                    piButton = 0;
+                    // document.piForm.piFormButton.value = "Start";
+                    clearInterval( piInterval );
+                }
+            }
+
+
+            function piDisp() {
+                var piStop = new Date();  // 経過時間を退避
+                var piTime = piStop.getTime() - piStart.getTime();     // 通算ミリ秒計算
+                    var piH = Math.floor(piTime/(60*60*1000));         // '時間'取得
+                    var piTime = piTime - (piH*60*60*1000);
+                    var piM = Math.floor(piTime/(60*1000));            // '分'取得
+                    var piTime = piTime - (piM*60*1000);
+                    var piS = Math.floor(piTime/1000);                 // '秒'取得
+                    var piMS = piTime%1000;                            // 'ミリ秒'取得
+                // document.piForm.piFormTime.value = piH + ":" + piM + ":" + piS + ":" + piMS;
+
+                document.getElementById("elapsedTimeId").innerHTML = elapsedTime24p();
+                function elapsedTime24p() {
+                    var sd24 = piH + ":" + piM + ":" + piS + ":" + piMS;
+                    return sd24;
+                }
+            }
+            */
+
+            /* 日時の表示
+            document.getElementById("viewTimeId").innerHTML = getNow();
+            function getNow() {
+                var now = new Date();
+                var year = now.getFullYear();
+                var mon = now.getMonth()+1; // １を足すこと
+                var day = now.getDate();
+                var hour = now.getHours();
+                var min = now.getMinutes();
+                var sec = now.getSeconds();
+
+                //出力用
+                var s = year + "/" + mon + "/" + day + "　" + hour + ":" + min;
+                return s;
+            }
+            */
+
+        </script>
+
+</body>
+</html>

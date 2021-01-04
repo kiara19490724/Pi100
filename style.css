@@ -1,0 +1,118 @@
+/*============================================
+全般的なスタイル
+============================================*/
+* {
+	margin:0; padding:0; 		/*全要素のマージン・パディングをリセット*/
+}
+body {
+   background-color:#CCFFCC;	/*ページ全体の背景色*/   
+	
+	font-size:100%;			/* フォントサイズを100%にする */
+	/* font-family: "ＭＳ ゴシック",sans-serif;  フォントの種類をゴシック系にする */
+	line-height:1.5; 		/* 行の高さを1.5倍にする */	
+}
+
+div#pagebody {
+	width:500px; margin:0 auto;	/*内容全体をセンタリング*/
+	background-color:#CCFFCC;	/*内容全体の背景色*/
+	background-image:url("images/bg_pagebody.png");	/*コンテンツ全体の背景画像*/
+	background-repeat:repeat-y;	/*背景画像を縦方向に繰り返す*/
+}
+
+div#modeSel {
+	width:350px; margin:0 auto;	/*内容全体をセンタリング*/
+}
+
+/* 左カラム（計時・日時の表示）*/
+div#time_data {
+	width:250px;			/* 幅の指定* /
+	margin:10px 50px 10px 0px;	/ *マージン */
+	padding:10px 50px 10px 10px;	/* パディング */
+	float:left;			/* カラムを左寄せにする */
+}
+
+/* 経過時間用ボックス */
+.elapsedTimeBox {
+    position:relative; 
+	left:50%;	
+}
+
+/* 経過時間の表示 */
+.elapsedTime {
+    position:relative;    
+	left:-100px;
+	/* background-color:yellow; */         
+}
+
+/* クリックミス回数用ボックス */
+.clickMissBox {
+    position:relative; 
+	left:50%;	
+}
+
+/* クリックミス回数の表示 */
+.clickMiss {
+    position:relative;    
+	left:-100px;
+}
+
+/* スコア用ボックス */
+.scoreBox {
+    position:relative; 
+	left:50%;	
+}
+
+/* スコアの表示 */
+.score {
+    position:relative;    
+	left:-100px;
+}
+
+/* 日時用ボックス */
+.viewTimeBox {
+    position:relative; 
+    left:50%;
+}
+
+/* 日時の表示 */
+.viewTime {
+    position:relative;    
+	left:-100px;
+}
+
+/* 右カラム（キーテーブル） */
+div#key_table {
+	width:200px;			/*幅の指定*/
+	float:right;			/*カラムを右寄せにする*/
+	margin:10px 0px 10px 0px;	/*位置調整*/
+	padding:10px 0px 0px 0px;	/*パディング*/
+}
+
+
+/* テーブル */            
+table, th, td {
+    border: 0px solid black;
+	border-collapse: collapse;
+	vertical-align:top;
+}
+
+/* 初期状態での表示 */
+.initialMessageBox {
+	position:relative; 
+	left:50%;
+}
+
+.initialMessage {
+	position:relative;    
+	left:-185px;
+	background-color:#afeeee;
+}
+	
+
+/* フッタ */
+div#footer {
+	clear:both;			/*フロート配置をクリアする*/
+	height:40px;			/*高さの指定*/
+	padding:10px 0px 0px 0px;	/*パディング*/
+	font-size:x-small;		/*フォントサイズを小さくする*/
+	text-align:center;		/*センタリング*/
